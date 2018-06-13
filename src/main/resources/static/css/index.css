@@ -1,0 +1,279 @@
+.datagrid table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+    z-index: 0;
+}
+
+.datagrid {
+    font: normal 18px/150% Calibri, Helvetica, sans-serif;
+    background: #fff;
+    border: 1px solid #00000026;
+    overflow: auto;
+    border-radius: 12px;
+    margin: 0 15px 120px 15px;
+}
+
+.datagrid table td, .datagrid table th {
+    padding: 5px 5px 5px 10px;
+}
+
+.datagrid table tr:hover, .datagrid table tr:nth-child(even):hover {
+    background-color: #ddd;
+    transition: background-color 0.2s;
+}
+
+.datagrid table thead th {
+    background-color: #b51e18;
+    margin: 13px;
+    color: white;
+    border-left: 1px solid #00000014;
+}
+
+.datagrid table thead th:first-child {
+    border: none;
+}
+
+.datagrid table tbody td {
+    color: #0f0f0f;
+    border-left: 1px solid #00000014;
+    font-weight: normal;
+}
+
+.datagrid table tbody tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+.datagrid table tbody td:first-child {
+    border-left: none;
+}
+
+.datagrid table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+body {
+    font: normal 12px/150% Calibri, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 32px;
+    color: #747486;
+}
+
+h3 {
+    margin: 15px;
+    padding: 20px;
+    font-size: 28pt;
+}
+.btn-add {
+    cursor:pointer;
+    position: fixed;
+    right: 60px;
+    bottom: 80px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    color: #fff;
+    overflow: hidden;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+    box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+    background-color: #b51e18;
+    outline: none;
+    text-align: center;
+    font-size: 36px;
+    opacity: 0.6;
+}
+.btn-add:hover {
+    transition:all .3s ease-in-out;
+    box-shadow: 0 12px 14px 0 rgba(0, 0, 0, 0.2);
+    opacity: 1;
+}
+.btn-add:active {
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.26);
+    background-color: #b51e18;
+    transition:all .3s ease-in-out;
+}
+
+.datagrid table tbody td:last-child:hover .menu{
+    display: block;
+}
+.datagrid table tbody td:last-child:hover {
+    cursor:pointer;
+}
+.datagrid table tbody td:last-child {
+    width: 40px;
+}
+.menu {
+    z-index: 1;
+    display: none;
+    position: relative;
+    right: 140px;
+    margin-top: 15px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.more.icon {
+    color: #000;
+    position: absolute;
+    margin-left: 9px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    border: solid 1px currentColor;
+}
+.more.icon:before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: -8px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    border: solid 1px currentColor;
+}
+.more.icon:after {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 6px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    border: solid 1px currentColor;
+}
+
+.btn-menu {
+    width: 100%;
+    color: black;
+    padding: 12px 16px;
+    background-color: #fff;
+    border-width: 0px;
+    outline: none;
+}
+.btn-menu:hover {
+    background-color: #d2d2d2;
+    transition: background-color 0.2s;
+    cursor:pointer;
+}
+.btn-menu:active {
+    background-color: #bfbfbf;
+    transition: background-color 0.2s;
+}
+
+.btn-cancel {
+    background-color: transparent;
+    font-size: 18px;
+    border-width: 1px;
+    border-color:  transparent;
+    color: #b51e18;
+    border-radius: 15px;
+    outline: none;
+}
+.btn-cancel:hover {
+    border-color: #454545;
+    transition: border-color 0.2s;
+}
+.btn-cancel:active {
+    background-color: #b51e18;
+    transition: background-color 0.2s;
+    border-color: transparent;
+    color: #ffffff;
+}
+
+.btn-apply {
+    background-color: #b52f2b;
+    color: #ffffff;
+    font-size: 18px;
+    border-color: transparent;
+    border-radius: 15px;
+    outline: none;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.btn-apply:hover {
+    background-color: #b52f2b;
+    transition:all .3s ease-in-out;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.26);
+}
+.btn-apply:active {
+    background-color: #7b0d07;
+    transition: all .3s ease-in-out;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.0);
+}
+.modal.fade .modal-body {
+    font-size: 22px;
+    text-align: left;
+    margin-left: 35px;
+    margin-right: 35px;
+    /*max-width: 100%;*/
+    /*width: auto !important;*/
+    /*display: inline-block;*/
+}
+input, textarea, select {
+    width: 100%;
+}
+.modal-title {
+    font-size: 18px;
+}
+
+.index-page {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+.button-index {
+    background-color: #b52f2b;
+    color: #fff;
+    padding: 30px 0 30px 0;
+    width:300px;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 22pt;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.2);
+    border-width: 0;
+    outline: none;
+}
+
+.button-index:hover, .button-query:hover {
+    background-color: #7b0d07;
+    transition:all .3s ease-in-out;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.26);
+    cursor: pointer;
+}
+
+.button-index:active, .button-query:active {
+    background-color: #b52f2b;
+    transition: all .3s ease-in-out;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.0);
+}
+
+.query {
+    white-space:nowrap;
+}
+
+.query div{
+    display:inline-block;
+    margin: 10px;
+    bottom: 36px;
+}
+
+.obj {
+    width: 300px;
+    font-size: 18pt;
+}
+.button-query {
+    background-color: #b52f2b;
+    color: #fff;
+    padding: 0 20px;
+    border-radius: 12px;
+    margin-left: 20px;
+    font-size: 18pt;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.2);
+    border-width: 0;
+    outline: none;
+}

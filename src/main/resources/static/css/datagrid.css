@@ -1,0 +1,31 @@
+
+.menu.home {
+    width: 36px;
+    height: 36px;
+    margin-left: 15px;
+    margin-top: 36px;
+    position: absolute;
+    background-color: transparent;
+    border-width: 15px 15px 15px 0;
+    border-color: #000;
+}
+/*     color: #000;
+    display: block;
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 36px;
+    transition: background-color 0.5s;
+    width: 36px;
+    height: 1px;
+  background-color: currentColor; */
+/* }.menu.home:before {
+    content: '';
+    position: absolute;
+    transform: rotate(0deg);
+    transition: transform 0.5s, top 0.5s;
+    top: -12px;
+    left: 0;
+    width: 36px;
+    height: 1px;
+    background-color: currentColor;
+} */

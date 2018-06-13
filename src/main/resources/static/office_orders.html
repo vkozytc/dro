@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Офісні замовлення</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/sidebar.css">
+</head>
+
+<body ng-app = "photo">
+<div  ng-controller = "AppCtrl as ctrl" >
+	<div class="menu-container">
+		<div class="menu-s icon">
+			<div class="categories">
+				<div class="slider">
+					<button type="button" class="btn-side" onclick="window.location.href='branches.html'">Вітки</button>
+					<button type="button" class="btn-side" onclick="window.location.href='clients.html'">Клієнти</button>
+					<button type="button" class="btn-side" onclick="window.location.href='good_type.html'">Типи товару</button>
+					<button type="button" class="btn-side" onclick="window.location.href='hurry_supplies.html'">Термінові замовлення</button>
+					<button type="button" class="btn-side" onclick="window.location.href='kiosks.html'">Кіоски</button>
+					<button type="button" class="btn-side dis">Офісні замовлення</button>
+					<button type="button" class="btn-side" onclick="window.location.href='photo_goods.html'">Фототовари</button>
+					<button type="button" class="btn-side" onclick="window.location.href='service_supplies.html'">Сервісні замовлення</button>
+					<button type="button" class="btn-side" onclick="window.location.href='services.html'">Сервіси</button>
+					<button type="button" class="btn-side" onclick="window.location.href='supplies.html'">Замовлення</button>
+					<button type="button" class="btn-side" onclick="window.location.href='type_of_supplies.html'">Типи замовлень</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="menu-button" onclick="window.location.href='index.html'" style="left: 64px">
+		<div class="menu-s home">
+			<a href="index.html"></a>
+		</div>
+	</div>
+	<h3>Офісні замовлення</h3>
+	<div class="datagrid"><table id = "table">
+		<thead><tr>
+			<th>ID</th>
+			<th>Товар</th>
+			<th>Кіоск</th>
+			<th>Дата замовлення</th>
+			<th>Кількість товарів</th>
+			<th>Ціна</th>
+			<th>Дата продажу</th>
+			<th style="border-left-color: transparent"></th>
+		</tr></thead>
+		<tbody>
+		<tr ng-repeat = "item in entries">
+			<td>{{item.id}}</td>
+			<td>{{item.photoGoodId.name}}</td>
+			<td>{{item.kioskId.address}}</td>
+			<td>{{item.dateOfSupply}}</td>
+			<td>{{item.amountOfGoods}}</td>
+			<td>{{item.price}}</td>
+			<td>{{item.dateOfSelling}}</td>
+			<td style="border-left-color: transparent">
+				<div class="more icon">
+					<div class="menu">
+						<button type="button" class="btn-menu" data-toggle="modal" data-target="#updateModal"
+								ng-click="ctrl.start_update_entry(item.id,item.photoGoodId.id,item.kioskId.id,
+								item.dateOfSupply,item.amountOfGoods,item.price,item.dateOfSelling)">
+							Редагувати
+						</button>
+						<button type="button" class="btn-menu"
+								ng-click="ctrl.del_entry(item.id)">
+							Видалити
+						</button>
+					</div>
+				</div>
+			</td>
+		</tr>
+		</tbody>
+	</table></div>
+
+	<!--додавання -->
+	<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+		 aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="addModalLabel">Додавання запису</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Закрити">
+						<span aria-hidden="true">X</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<div class="row">
+						<div class="left">Товар</div>
+						<div class="right"><select id="PhotoGoods"></select></div>
+					</div>
+					<div class="row">
+						<div class="left">Кіоск</div>
+						<div class="right"><select id="Kiosks"></select></div>
+					</div>
+					<div class="row">
+						<div class="left">Дата замовлення</div>
+						<div class="right"><input type="Date" id="DateOfSupply"></div>
+					</div>
+					<div class="row">
+						<div class="left">Кількість товарів</div>
+						<div class="right"><input type="number" min="0" id="AmountOfGoods"></div>
+					</div>
+					<div class="row">
+						<div class="left">Ціна</div>
+						<div class="right"><input type="number" min="0" id="Price"></div>
+					</div>
+					<div class="row">
+						<div class="left">Дата продажу</div>
+						<div class="right"><input type="Date" id="DateOfSelling"></div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn-cancel" data-dismiss="modal">Скасувати</button>
+					<button class="btn-apply" type="button"  ng-click="ctrl.insert_entry()">Додати</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--редагування -->
+	<div class="modal fade" id="updateModal" tabindex="-2" role="dialog" aria-labelledby="updateModalLabel"
+		 aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="updateModalLabel">Редагування запису</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Закрити">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<div class="row">
+						<div class="left">Товар</div>
+						<div class="right"><select id="PhotoGoodsUPD"></select></div>
+					</div>
+					<div class="row">
+						<div class="left">Кіоск</div>
+						<div class="right"><select id="KiosksUPD"></select></div>
+					</div>
+					<div class="row">
+						<div class="left">Дата замовлення</div>
+						<div class="right"><input type="Date" id="DateOfSupplyUPD"></div>
+					</div>
+					<div class="row">
+						<div class="left">Кількість товарів</div>
+						<div class="right"><input type="number" id="AmountOfGoodsUPD"></div>
+					</div>
+					<div class="row">
+						<div class="left">Ціна</div>
+						<div class="right"><input type="number" id="PriceUPD"></div>
+					</div>
+					<div class="row">
+						<div class="left">Дата продажу</div>
+						<div class="right"><input type="Date" id="DateOfSellingUPD"></div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn-cancel" data-dismiss="modal">Скасувати</button>
+					<button class="btn-apply" type="button"  ng-click="ctrl.update_entry()">Змінити</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<button type="button" class="btn-add" data-toggle="modal" data-target="#addModal"
+			ng-click="ctrl.start_insert_entry()">+
+	</button>
+</div>
+</body>
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/officeOrders.js"></script>
+</html><!DOCTYPE html>

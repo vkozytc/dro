@@ -1,0 +1,146 @@
+.menu-container, .menu-button {
+    width: 64px;
+    height: 58px;
+    margin: 15px 0 0 30px;
+    cursor: pointer;
+    position: absolute;
+    background-color: transparent;
+}
+
+.menu-s.icon {
+    color: #000;
+    display: block;
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 30px;
+    transition: background-color 0.5s;
+    width: 36px;
+    height: 1px;
+    background-color: currentColor;
+}.menu-s.icon:before {
+     content: '';
+     position: absolute;
+     transform: rotate(0deg);
+     transition: transform 0.5s, top 0.5s;
+     top: -12px;
+     left: 0;
+     width: 36px;
+     height: 1px;
+     background-color: currentColor;
+ }.menu-s.icon:after {
+      content: '';
+      position: absolute;
+      transform: rotate(0deg);
+      transition: transform 0.5s, top 0.5s;
+      top: 12px;
+      left: 0;
+      width: 36px;
+      height: 1px;
+      background-color: currentColor;
+  }
+.menu-container:hover, .menu-button:hover {
+    background-color: #f2f2f2;
+    transition: background-color 0.5s;
+}
+.menu-container:hover .menu-s {
+    background-color: transparent;
+    transition: background-color 0.5s;
+}.menu-container:hover .menu-s.icon:before {
+     top: 0px;
+     transform: rotate(45deg);
+     transition: transform 0.5s, top 0.5s;
+ }.menu-container:hover .menu-s.icon:after {
+      transform: rotate(-45deg);
+      top: 0px;
+      transition: transform 0.5s, top 0.5s;
+  }
+.categories {
+    width: 400px;
+    display: none;
+    position: relative ;
+    line-height: 2;
+    left: -26px;
+    z-index: 1;
+    margin-left: 11px;
+    margin-top: 26px;
+    font-size: 14pt;
+    opacity: 0.95;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    max-height: 400px;
+}
+.menu-container:hover .categories {
+    display: block;
+}
+.menu-button:active {
+    background-color: #dddddd;
+    transition: background-color 0.5s;
+}
+
+.btn-side {
+    width: 100%;
+    color: black;
+    text-align: left;
+    padding: 7px 7px 7px 14px;
+    background-color: #f2f2f2;
+    border-width: 0px;
+    outline: none;
+}
+.btn-side:hover {
+    background-color: #d2d2d2;
+    transition: background-color 0.2s;
+    cursor:pointer;
+}
+.btn-side:active {
+    background-color: #bfbfbf;
+    transition: background-color 0.2s;
+}
+
+.btn-side.dis {
+    width: 100%;
+    color: #8d8d8d;
+    padding: 7px 7px 7px 14px;
+    background-color: #e2e2e2;
+    outline: none;
+    cursor: context-menu;
+}
+
+
+
+.menu-s.home {
+    color: black;
+    width: 24px;
+    height: 18px;
+    margin-left: 20px;
+    margin-top: 26px;
+    background-color: transparent;
+    border-left: solid 1px currentColor;
+    border-right: solid 1px currentColor;
+    border-bottom: solid 1px currentColor;
+    position: absolute;
+}
+.menu-s.home:before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    transform: rotate(-35deg);
+    top: -7px;
+    width: 20px;
+    height: 1px;
+    background-color: currentColor;
+}
+.menu-s.home:after {
+    content: '';
+    position: absolute;
+    right: -7px;
+    transform: rotate(35deg);
+    top: -7px;
+    width: 20px;
+    height: 1px;
+    background-color: currentColor;
+}
+
+.slider {
+    width: 400px;
+    height: 400px;
+    overflow-x: auto;
+}

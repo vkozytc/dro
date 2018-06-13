@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Замовлення за прогресом</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/sidebar.css">
+</head>
+
+<body ng-app = "photo">
+	<div  ng-controller = "AppCtrl as ctrl" >
+		<div class="menu-container">
+			<div class="menu-s icon">
+				<div class="categories">
+					<div class="slider">
+						<button type="button" class="btn-side" onclick="window.location.href='clients_by_branch_id.html'">Вітки із кількістю робочих місць</button>
+						<button type="button" class="btn-side" onclick="window.location.href='clients_by_branch_id.html'">Клієнти заданої вітки</button>
+						<button type="button" class="btn-side" onclick="window.location.href='clients_by_discount.html'">Клієнти із заданою знижкою</button>
+						<button type="button" class="btn-side" onclick="window.location.href='clients_by_type.html'">Клієнти заданого типу</button>
+						<button type="button" class="btn-side" onclick="window.location.href='hurry_supplies_by_branch_id.html'">Термінові замовлення заданої вітки</button>
+						<button type="button" class="btn-side" onclick="window.location.href='hurry_supplies_by_client_id.html'">Термінові замовлення заданого клієнта</button>
+						<button type="button" class="btn-side" onclick="window.location.href='hurry_supplies_by_date.html'">Термінові замовлення в певний період часу</button>
+						<button type="button" class="btn-side" onclick="window.location.href='hurry_supplies_by_done.html'">Термінові замовлення за прогресом</button>
+						<button type="button" class="btn-side" onclick="window.location.href='hurry_supplies_by_total_amount.html'">Термінові замовлення з певною кількістю фото</button>
+						<button type="button" class="btn-side" onclick="window.location.href='hurry_supplies_by_type_id.html'">Термінові замовлення за типом послуги</button>
+						<button type="button" class="btn-side" onclick="window.location.href='kiosks_by_branch_id.html'">Кіоски заданої вітки</button>
+						<button type="button" class="btn-side" onclick="window.location.href='kiosks_by_workplaces.html'">Кіоски із заданою кількістю робочих місць</button>
+						<button type="button" class="btn-side" onclick="window.location.href='office_orders_by_photo_good_id.html'">Офісне замовлення даного фототовару та протягом даного періоду часу</button>
+						<button type="button" class="btn-side" onclick="window.location.href='supplies_by_client_id.html'">Замовлення заданого клієнта</button>
+						<button type="button" class="btn-side" onclick="window.location.href='supplies_by_date.html'">Замовлення зроблені в певний період часу</button>
+						<button type="button" class="btn-side dis">Замовлення за прогресом</button>
+						<button type="button" class="btn-side" onclick="window.location.href='supplies_by_kiosk_id.html'">Замовлення заданого кіоску</button>
+						<button type="button" class="btn-side" onclick="window.location.href='supplies_by_total_amount.html'">Замовлення з певною кількістю фото</button>
+						<button type="button" class="btn-side" onclick="window.location.href='supplies_by_type_id.html'">Замовлення за типом послуги</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu-button" style="left: 64px">
+			<a href="/index.html">
+				<div class="menu-s home">
+				</div>
+			</a></div>
+		<h3>Замовлення за прогресом</h3>
+		<div class="datagrid"><table id = "table">
+			<thead><tr>
+				<th>ID</th>
+				<th>Кіоск</th>
+				<th>Тип послуги</th>
+				<th>Ціна</th>
+				<th>Кількість копій кадру</th>
+				<th>Загальна кількість фото</th>
+				<th>Формат</th>
+				<th>Тип бумаги</th>
+				<th>Дата замовлення</th>
+				<th>Прогрес</th>
+				<th>Клієнт</th>
+				<th style="border-left-color: transparent"></th>
+			</tr></thead>
+			<tbody>
+			<tr ng-repeat = "item in entries">
+				<td>{{item.id}}</td>
+				<td>{{item.kioskId.address}}</td>
+				<td>{{item.typeOfSupplyId.name}}</td>
+				<td>{{item.price}}</td>
+				<td>{{item.amountOfPhotosPerFrame}}</td>
+				<td>{{item.totalAmountOfPhotos}}</td>
+				<td>{{item.format}}</td>
+				<td>{{item.paperType}}</td>
+				<td>{{item.supplyDate}}</td>
+				<td>{{item.done}}</td>
+				<td>{{item.clientId.name}}</td>
+				<td style="border-left-color: transparent"></td>
+			</tr>
+			</tbody>
+		</table></div>
+		<div class="query">
+			<div class="obj-name">Прогрес</div>
+			<div class="obj"><select id="done"></select></div>
+			<button type="button" class="button-query" ng-click="ctrl.change()">OK</button>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript" src="js/supplies_by_done.js"></script>
+</html>
